@@ -33,7 +33,9 @@ class GFTextField: UITextField {
         
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no
-        
+        // to show a specific type of keyboard
+        //keyboardType = .default
+        returnKeyType = .go
         placeholder = "Enter a username"
     }
 
