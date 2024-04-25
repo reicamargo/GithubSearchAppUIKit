@@ -13,6 +13,8 @@
 		3D588C5E2BDACF6D00EB98B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D588C5C2BDACF6D00EB98B4 /* LaunchScreen.storyboard */; };
 		3D588C662BDAD73500EB98B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C652BDAD73500EB98B4 /* SearchViewController.swift */; };
 		3D588C682BDAD77100EB98B4 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C672BDAD77100EB98B4 /* FavoritesListViewController.swift */; };
+		3D588C6A2BDADF3400EB98B4 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C692BDADF3400EB98B4 /* GFButton.swift */; };
+		3D588C6C2BDAE27900EB98B4 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C6B2BDAE27900EB98B4 /* GFTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3D588C5F2BDACF6D00EB98B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D588C652BDAD73500EB98B4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3D588C672BDAD77100EB98B4 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
+		3D588C692BDADF3400EB98B4 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
+		3D588C6B2BDAE27900EB98B4 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				3D588C5F2BDACF6D00EB98B4 /* Info.plist */,
 				3D588C652BDAD73500EB98B4 /* SearchViewController.swift */,
 				3D588C672BDAD77100EB98B4 /* FavoritesListViewController.swift */,
+				3D588C692BDADF3400EB98B4 /* GFButton.swift */,
+				3D588C6B2BDAE27900EB98B4 /* GFTextField.swift */,
 			);
 			path = "GithubSearchAppUIKit GithubSearchAppUIKit";
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D588C6C2BDAE27900EB98B4 /* GFTextField.swift in Sources */,
 				3D588C662BDAD73500EB98B4 /* SearchViewController.swift in Sources */,
+				3D588C6A2BDADF3400EB98B4 /* GFButton.swift in Sources */,
 				3D588C522BDACF6B00EB98B4 /* AppDelegate.swift in Sources */,
 				3D588C682BDAD77100EB98B4 /* FavoritesListViewController.swift in Sources */,
 				3D588C542BDACF6B00EB98B4 /* SceneDelegate.swift in Sources */,
