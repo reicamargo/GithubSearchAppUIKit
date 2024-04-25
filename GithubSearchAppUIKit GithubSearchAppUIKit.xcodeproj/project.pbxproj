@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		3D588C522BDACF6B00EB98B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */; };
 		3D588C542BDACF6B00EB98B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */; };
-		3D588C562BDACF6B00EB98B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C552BDACF6B00EB98B4 /* ViewController.swift */; };
 		3D588C5B2BDACF6D00EB98B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D588C5A2BDACF6D00EB98B4 /* Assets.xcassets */; };
 		3D588C5E2BDACF6D00EB98B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D588C5C2BDACF6D00EB98B4 /* LaunchScreen.storyboard */; };
+		3D588C662BDAD73500EB98B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C652BDAD73500EB98B4 /* SearchViewController.swift */; };
+		3D588C682BDAD77100EB98B4 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C672BDAD77100EB98B4 /* FavoritesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3D588C4E2BDACF6B00EB98B4 /* GithubSearchAppUIKit GithubSearchAppUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GithubSearchAppUIKit GithubSearchAppUIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D588C552BDACF6B00EB98B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3D588C5A2BDACF6D00EB98B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D588C5D2BDACF6D00EB98B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D588C5F2BDACF6D00EB98B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D588C652BDAD73500EB98B4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3D588C672BDAD77100EB98B4 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +58,11 @@
 			children = (
 				3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */,
 				3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */,
-				3D588C552BDACF6B00EB98B4 /* ViewController.swift */,
 				3D588C5A2BDACF6D00EB98B4 /* Assets.xcassets */,
 				3D588C5C2BDACF6D00EB98B4 /* LaunchScreen.storyboard */,
 				3D588C5F2BDACF6D00EB98B4 /* Info.plist */,
+				3D588C652BDAD73500EB98B4 /* SearchViewController.swift */,
+				3D588C672BDAD77100EB98B4 /* FavoritesListViewController.swift */,
 			);
 			path = "GithubSearchAppUIKit GithubSearchAppUIKit";
 			sourceTree = "<group>";
@@ -134,8 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D588C562BDACF6B00EB98B4 /* ViewController.swift in Sources */,
+				3D588C662BDAD73500EB98B4 /* SearchViewController.swift in Sources */,
 				3D588C522BDACF6B00EB98B4 /* AppDelegate.swift in Sources */,
+				3D588C682BDAD77100EB98B4 /* FavoritesListViewController.swift in Sources */,
 				3D588C542BDACF6B00EB98B4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
