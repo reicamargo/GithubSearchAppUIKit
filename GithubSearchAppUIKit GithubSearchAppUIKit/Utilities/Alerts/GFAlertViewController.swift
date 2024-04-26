@@ -45,6 +45,7 @@ class GFAlertViewController: UIViewController {
     func configureContainerView() {
         view.addSubview(containerView)
         
+        //This should be extract. The ViewController doesn't need to know this
         containerView.backgroundColor = .systemBackground
         containerView.layer.cornerRadius = 16
         containerView.layer.borderWidth = 2
@@ -75,6 +76,7 @@ class GFAlertViewController: UIViewController {
     func configureActionButton() {
         containerView.addSubview(actionButton)
         
+        //This should be extract. The ViewController doesn't need to know this
         actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         
