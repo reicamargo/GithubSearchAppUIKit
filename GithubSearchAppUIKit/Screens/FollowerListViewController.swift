@@ -1,6 +1,6 @@
 //
 //  FollowerListViewController.swift
-//  GithubSearchAppUIKit GithubSearchAppUIKit
+//  GithubSearchAppUIKit
 //
 //  Created by Reinaldo Camargo on 25/04/24.
 //
@@ -10,10 +10,14 @@ import UIKit
 class FollowerListViewController: UIViewController {
     var username: String!
     var followers: [Follower] = []
+    var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        
+        configureViewController()
+        configureCollectionView()
+        
         Task {
             await loadFollowers()
         }
@@ -43,5 +47,18 @@ class FollowerListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func configureCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        view.addSubview(collectionView)
+        
+        collectionView.backgroundColor = .systemPurple
+        collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
+        
+    }
+    
+    private func configureViewController() {
+        view.backgroundColor = .systemBackground
     }
 }

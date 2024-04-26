@@ -1,6 +1,6 @@
 //
 //  GFButton.swift
-//  GithubSearchAppUIKit GithubSearchAppUIKit
+//  GithubSearchAppUIKit
 //
 //  Created by Reinaldo Camargo on 25/04/24.
 //

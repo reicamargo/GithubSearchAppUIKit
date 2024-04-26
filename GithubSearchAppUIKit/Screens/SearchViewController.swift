@@ -1,6 +1,6 @@
 //
 //  SearchViewController.swift
-//  GithubSearchAppUIKit GithubSearchAppUIKit
+//  GithubSearchAppUIKit
 //
 //  Created by Reinaldo Camargo on 25/04/24.
 //
@@ -19,7 +19,8 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        
+        configureViewController()
         configureLogoImageView()
         configureUserNameTextField()
         configureCallToActionButton()
@@ -31,7 +32,7 @@ class SearchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    func createDismissKeyBoardTapGesture() {
+    private func createDismissKeyBoardTapGesture() {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
@@ -48,7 +49,11 @@ class SearchViewController: UIViewController {
         navigationController?.pushViewController(followerListVC, animated: true)
     }
     
-    func configureLogoImageView() {
+    private func configureViewController() {
+        view.backgroundColor = .systemBackground
+    }
+    
+    private func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = UIImage(resource: .ghLogo)
@@ -62,7 +67,7 @@ class SearchViewController: UIViewController {
         ])
     }
     
-    func configureUserNameTextField() {
+    private func configureUserNameTextField() {
         view.addSubview(userNameTextField)
         userNameTextField.delegate = self
         
@@ -74,7 +79,7 @@ class SearchViewController: UIViewController {
         ])
     }
     
-    func configureCallToActionButton() {
+    private func configureCallToActionButton() {
         view.addSubview(callToActionButton)
         callToActionButton.addTarget(self, action: #selector(puchFollowerListViewController), for: .touchUpInside)
         

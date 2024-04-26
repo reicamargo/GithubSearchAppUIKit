@@ -1,6 +1,6 @@
 //
 //  NetworkManager.swift
-//  GithubSearchAppUIKit GithubSearchAppUIKit
+//  GithubSearchAppUIKit
 //
 //  Created by Reinaldo Camargo on 26/04/24.
 //
