@@ -34,7 +34,10 @@ class FollowerListViewController: UIViewController {
     }
     
     private func loadFollowers(username: String, page: Int) async -> Void {
+        
         do {
+            showLoadingView()
+            
             let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
             
             if followers.count < 100 {
@@ -43,6 +46,8 @@ class FollowerListViewController: UIViewController {
             
             self.followers.append(contentsOf: followers)
             self.updateData()
+            
+            dismissLoadingView()
         } catch {
             var alertItem: AlertItem
             if let networkError = error as? NetworkError {
