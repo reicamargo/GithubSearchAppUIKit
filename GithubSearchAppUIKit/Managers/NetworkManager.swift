@@ -32,6 +32,25 @@ class NetworkManager {
         }
     }
     
+    func getUserInfo(for username: String) async throws -> User {
+        let endpoint =  "\(baseURL)\(username)"
+        
+        guard let url = URL(string: endpoint) else {
+            throw NetworkError.invalidURL
+        }
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        do {
+            let json = JSONDecoder()
+            json.keyDecodingStrategy = .convertFromSnakeCase
+            json.dateDecodingStrategy = .iso8601
+            return try json.decode(User.self, from: data)
+        } catch {
+            throw NetworkError.invalidData
+        }
+    }
+    
     func downloadImage(from urlString: String) async -> UIImage? {
         let cacheKey = NSString(string: urlString)
         
