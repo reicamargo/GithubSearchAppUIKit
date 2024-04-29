@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D2009B42BDFF5E9003A12F1 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2009B32BDFF5E8003A12F1 /* UIHelper.swift */; };
 		3D588C522BDACF6B00EB98B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */; };
 		3D588C542BDACF6B00EB98B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */; };
 		3D588C5B2BDACF6D00EB98B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D588C5A2BDACF6D00EB98B4 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D2009B32BDFF5E8003A12F1 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		3D588C4E2BDACF6B00EB98B4 /* GithubSearchAppUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearchAppUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				3D588C7C2BDB047C00EB98B4 /* Alerts */,
 				3D588C7B2BDB041C00EB98B4 /* Extensions */,
+				3D2009B32BDFF5E8003A12F1 /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				3D588C6C2BDAE27900EB98B4 /* GFTextField.swift in Sources */,
 				3D588C662BDAD73500EB98B4 /* SearchViewController.swift in Sources */,
 				3D588C762BDB012800EB98B4 /* UIViewController+Ext.swift in Sources */,
+				3D2009B42BDFF5E9003A12F1 /* UIHelper.swift in Sources */,
 				3D588C8A2BDBFD6E00EB98B4 /* GFAvatarImageView.swift in Sources */,
 				3D588C6A2BDADF3400EB98B4 /* GFButton.swift in Sources */,
 				3D588C6E2BDAF2A800EB98B4 /* FollowerListViewController.swift in Sources */,
