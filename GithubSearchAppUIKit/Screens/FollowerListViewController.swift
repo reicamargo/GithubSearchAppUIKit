@@ -116,7 +116,6 @@ class FollowerListViewController: UIViewController {
     private func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search for a username"
         navigationItem.searchController = searchController
         
@@ -203,10 +202,11 @@ extension FollowerListViewController: UICollectionViewDelegate {
     }
 }
 
-extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+extension FollowerListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {
             isSearching = false
+            filteredFollowers.removeAll()
             updateData(on: followers)
             return
         }
@@ -214,12 +214,6 @@ extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelega
         filteredFollowers = followers.filter({ $0.login.localizedCaseInsensitiveContains(filter) })
         updateData(on: filteredFollowers)
     }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        updateData(on: followers)
-    }
-    
 }
 
 extension FollowerListViewController: FollowerListViewControllerDelegate {
@@ -230,8 +224,7 @@ extension FollowerListViewController: FollowerListViewControllerDelegate {
         page = 1
         followers.removeAll()
         filteredFollowers.removeAll()
-        
-        collectionView.setContentOffset(.zero, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         Task {
             await loadFollowers(username: username, page: 1)
         }
