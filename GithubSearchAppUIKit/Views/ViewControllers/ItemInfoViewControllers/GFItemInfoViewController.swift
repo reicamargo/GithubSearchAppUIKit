@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ItemInfoViewControllerDelegate {
+    func didTapGihubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
+}
+
 class GFItemInfoViewController: UIViewController {
 
     let stackView = UIStackView()
@@ -15,7 +20,6 @@ class GFItemInfoViewController: UIViewController {
     let actionButton = GFButton()
     
     var user: User!
-    var delegate: UserInfoViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()

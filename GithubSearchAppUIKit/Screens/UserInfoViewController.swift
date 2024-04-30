@@ -8,10 +8,8 @@
 import UIKit
 
 protocol UserInfoViewControllerDelegate {
-    func didTapGihubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
+    func didRequestFollowers(for username: String)
 }
-
 
 class UserInfoViewController: UIViewController {
     
@@ -23,7 +21,7 @@ class UserInfoViewController: UIViewController {
     
     var username: String!
     var alertItem: AlertItem?
-    var delegate: FollowerListViewControllerDelegate!
+    var delegate: UserInfoViewControllerDelegate!
     
 
     override func viewDidLoad() {
@@ -125,7 +123,8 @@ class UserInfoViewController: UIViewController {
 
 }
 
-extension UserInfoViewController: UserInfoViewControllerDelegate {
+
+extension UserInfoViewController: GFRepoItemViewControllerDelegate {
     func didTapGihubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             alertItem = AlertItemContext.invalidGithubUserURL
@@ -136,7 +135,9 @@ extension UserInfoViewController: UserInfoViewControllerDelegate {
         presentSafariVC(with: url)
         
     }
-    
+}
+
+extension UserInfoViewController: GFFollowerItemViewControllerDelegate {
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {
             alertItem = AlertItemContext.noFollowers

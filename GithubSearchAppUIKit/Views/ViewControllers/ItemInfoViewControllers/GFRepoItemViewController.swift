@@ -7,8 +7,15 @@
 
 import UIKit
 
+protocol GFRepoItemViewControllerDelegate {
+    func didTapGihubProfile(for user: User)
+}
+
+
 class GFRepoItemViewController: GFItemInfoViewController {
 
+    var delegate: GFRepoItemViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
