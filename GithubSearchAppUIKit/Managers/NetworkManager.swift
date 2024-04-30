@@ -53,13 +53,9 @@ class NetworkManager {
     func downloadImage(from urlString: String) async -> UIImage? {
         let cacheKey = NSString(string: urlString)
         
-        if let image = cache.object(forKey: cacheKey) {
-            return image
-        }
+        if let image = cache.object(forKey: cacheKey) { return image }
         
-        guard let url = URL(string: urlString) else {
-            return nil
-        }
+        guard let url = URL(string: urlString) else { return nil }
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
