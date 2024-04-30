@@ -29,4 +29,8 @@ struct AlertItemContext {
     //MARK: - GithubUser URL error messages
     static let invalidGithubUserURL = AlertItem(title: "Invalid URL",
                                             message: "The url attached  to this user is invalid.")
+    
+    //MARK: - GithubUser has no followers
+    static let noFollowers = AlertItem(title: "No followers",
+                                            message: "This user has no followers.")
 }

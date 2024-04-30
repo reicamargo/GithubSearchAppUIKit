@@ -7,6 +7,11 @@
 
 import UIKit
 
+
+protocol FollowerListViewControllerDelegate {
+    func didRequestFollowers(for username: String)
+}
+
 class FollowerListViewController: UIViewController {
     
     enum Section {
@@ -144,6 +149,7 @@ extension FollowerListViewController: UICollectionViewDelegate {
         
         let destinationVC = UserInfoViewController()
         destinationVC.username = follower.login
+        destinationVC.delegate = self
         
         let navController = UINavigationController(rootViewController: destinationVC)
         present(navController, animated: true)
@@ -167,4 +173,20 @@ extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelega
         updateData(on: followers)
     }
     
+}
+
+extension FollowerListViewController: FollowerListViewControllerDelegate {
+    func didRequestFollowers(for username: String) {
+        //VC reset
+        self.username = username
+        title = username
+        page = 1
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        
+        collectionView.setContentOffset(.zero, animated: true)
+        Task {
+            await loadFollowers(username: username, page: 1)
+        }
+    }
 }

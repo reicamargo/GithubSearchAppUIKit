@@ -23,6 +23,8 @@ class UserInfoViewController: UIViewController {
     
     var username: String!
     var alertItem: AlertItem?
+    var delegate: FollowerListViewControllerDelegate!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +52,7 @@ class UserInfoViewController: UIViewController {
                     alertItem = AlertItemContext.invalidResponse
                 }
             } else { alertItem = AlertItemContext.defaultError }
-            
+
             self.presentGFAlertOnMainThread(title: alertItem!.title, message: alertItem!.message, buttonTitle: "Ok")
         }
         
@@ -136,8 +138,14 @@ extension UserInfoViewController: UserInfoViewControllerDelegate {
     }
     
     func didTapGetFollowers(for user: User) {
-        //dismiss
-        //tel follower list screen the new user
+        guard user.followers != 0 else {
+            alertItem = AlertItemContext.noFollowers
+            self.presentGFAlertOnMainThread(title: alertItem!.title, message: alertItem!.message, buttonTitle: "So sad...")
+            return
+        }
+        
+        delegate.didRequestFollowers(for: user.login)
+        dismissVC()
     }
     
     
