@@ -99,6 +99,10 @@ extension FavoritesListViewController: UITableViewDataSource, UITableViewDelegat
         favorites.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .left)
         
+        if favorites.isEmpty {
+            showEmptyStateView(with: "No favorites?\nAdd one on the follower screen", in: self.view)
+        }
+        
         Task {
             do {
                 try await PersistenceManager.update(with: favorite, actionType: .remove)
