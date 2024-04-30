@@ -62,7 +62,7 @@ class FavoritesListViewController: UIViewController {
                 alertItem = AlertItem(title: "Something is wrong", message: persistenceError.rawValue)
             } else { alertItem = AlertItemContext.defaultError }
             
-            self.presentGFAlertOnMainThread(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
+            self.presentGFAlert(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
         }
         
         dismissLoadingView()
@@ -111,7 +111,7 @@ extension FavoritesListViewController: UITableViewDataSource, UITableViewDelegat
                     alertItem = AlertItem(title: "Something is wrong", message: persistenceError.rawValue)
                 } else { alertItem = AlertItemContext.defaultError }
                 
-                self.presentGFAlertOnMainThread(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
+                self.presentGFAlert(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
             }
         }
         

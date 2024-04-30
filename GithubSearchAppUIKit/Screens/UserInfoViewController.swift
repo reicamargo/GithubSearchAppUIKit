@@ -51,7 +51,7 @@ class UserInfoViewController: UIViewController {
                 }
             } else { alertItem = AlertItemContext.defaultError }
 
-            self.presentGFAlertOnMainThread(title: alertItem!.title, message: alertItem!.message, buttonTitle: "Ok")
+            self.presentGFAlert(title: alertItem!.title, message: alertItem!.message, buttonTitle: "Ok")
         }
         
     }
@@ -125,7 +125,7 @@ extension UserInfoViewController: GFRepoItemViewControllerDelegate {
     func didTapGihubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             alertItem = AlertItemContext.invalidGithubUserURL
-            self.presentGFAlertOnMainThread(title: alertItem!.title, message: alertItem!.message, buttonTitle: "Ok")
+            self.presentGFAlert(title: alertItem!.title, message: alertItem!.message, buttonTitle: "Ok")
             return
         }
         
@@ -138,7 +138,7 @@ extension UserInfoViewController: GFFollowerItemViewControllerDelegate {
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else {
             alertItem = AlertItemContext.noFollowers
-            self.presentGFAlertOnMainThread(title: alertItem!.title, message: alertItem!.message, buttonTitle: "So sad...")
+            self.presentGFAlert(title: alertItem!.title, message: alertItem!.message, buttonTitle: "So sad...")
             return
         }
         

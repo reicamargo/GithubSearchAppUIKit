@@ -48,27 +48,11 @@ class FollowerListViewController: UIViewController {
     }
     
     private func loadFollowers(username: String, page: Int) async -> Void {
+        showLoadingView()
         
         do {
-            showLoadingView()
-            
             let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
-            
-            if followers.count < 100 {
-                self.hasMoreFollowers = false
-            }
-            
-            self.followers.append(contentsOf: followers)
-            
-            if self.followers.isEmpty {
-                let message = "This user doesn't have any followers. Go follow them ;)"
-                showEmptyStateView(with: message, in: self.view)
-                return
-            }
-            
-            self.updateData(on: followers)
-            
-            dismissLoadingView()
+            updateUI(with: followers)
         } catch {
             var alertItem: AlertItem
             if let networkError = error as? NetworkError {
@@ -82,13 +66,31 @@ class FollowerListViewController: UIViewController {
                 }
             } else { alertItem = AlertItemContext.defaultError }
             
-            self.presentGFAlertOnMainThread(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
+            presentGFAlert(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
         }
+        
+        dismissLoadingView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func updateUI(with followers: [Follower]) {
+        if followers.count < 100 {
+            self.hasMoreFollowers = false
+        }
+        
+        self.followers.append(contentsOf: followers)
+        
+        if self.followers.isEmpty {
+            let message = "This user doesn't have any followers. Go follow them ;)"
+            showEmptyStateView(with: message, in: self.view)
+            return
+        }
+        
+        self.updateData(on: followers)
     }
     
     private func configureCollectionView() {
@@ -170,12 +172,10 @@ extension FollowerListViewController: UICollectionViewDelegate {
             
             do {
                 let user = try await NetworkManager.shared.getUserInfo(for: username)
-                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                try await addUserToFavorites(user)
                 
-                try await PersistenceManager.update(with: favorite, actionType: .add)
                 alertItem = AlertItemContext.favoriteUpdated
-                self.presentGFAlertOnMainThread(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
-                
+                self.presentGFAlert(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
             } catch {
                 if let networkError = error as? NetworkError {
                     switch networkError {
@@ -190,10 +190,15 @@ extension FollowerListViewController: UICollectionViewDelegate {
                     alertItem = AlertItem(title: "Something is wrong", message: persistenceError.rawValue)
                 } else { alertItem = AlertItemContext.defaultError }
                 
-                self.presentGFAlertOnMainThread(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
+                self.presentGFAlert(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
             }
             dismissLoadingView()
         }
+    }
+    
+    private func addUserToFavorites(_ user: User) async throws {
+        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        try await PersistenceManager.update(with: favorite, actionType: .add)
     }
 }
 

@@ -11,8 +11,12 @@ class NetworkManager {
     static let shared = NetworkManager()
     private let cache = NSCache<NSString, UIImage>()
     private let baseURL = "https://api.github.com/users/"
+    private let decoder = JSONDecoder()
     
-    private init() {}
+    private init() {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+    }
     
     func getFollowers(for username: String, page: Int) async throws -> [Follower] {
         let endpoint =  "\(baseURL)\(username)/followers?per_page=100&page=\(page)"
@@ -24,9 +28,7 @@ class NetworkManager {
         let (data, _) = try await URLSession.shared.data(from: url)
         
         do {
-            let json = JSONDecoder()
-            json.keyDecodingStrategy = .convertFromSnakeCase
-            return try json.decode([Follower].self, from: data)
+            return try decoder.decode([Follower].self, from: data)
         } catch {
             throw NetworkError.invalidData
         }
@@ -42,10 +44,7 @@ class NetworkManager {
         let (data, _) = try await URLSession.shared.data(from: url)
         
         do {
-            let json = JSONDecoder()
-            json.keyDecodingStrategy = .convertFromSnakeCase
-            json.dateDecodingStrategy = .iso8601
-            return try json.decode(User.self, from: data)
+            return try decoder.decode(User.self, from: data)
         } catch {
             throw NetworkError.invalidData
         }

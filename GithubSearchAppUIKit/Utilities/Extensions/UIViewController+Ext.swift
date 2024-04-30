@@ -11,14 +11,11 @@ import SafariServices
 fileprivate var containerView: UIView!
 
 extension UIViewController {
-    func presentGFAlertOnMainThread(title: String, message: String, buttonTitle: String) {
-        Task {
-            let alertVC = GFAlertViewController(alertTitle: title, message: message, buttonTitle: buttonTitle)
-            alertVC.modalPresentationStyle = .overFullScreen
-            alertVC.modalTransitionStyle = .crossDissolve
-            self.present(alertVC, animated: true)
-            
-        }
+    func presentGFAlert(title: String, message: String, buttonTitle: String) {
+        let alertVC = GFAlertViewController(alertTitle: title, message: message, buttonTitle: buttonTitle)
+        alertVC.modalPresentationStyle = .overFullScreen
+        alertVC.modalTransitionStyle = .crossDissolve
+        present(alertVC, animated: true)
     }
     
     func showLoadingView() {
