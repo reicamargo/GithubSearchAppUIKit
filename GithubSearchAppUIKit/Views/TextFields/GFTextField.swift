@@ -36,6 +36,7 @@ class GFTextField: UITextField {
         // to show a specific type of keyboard
         //keyboardType = .default
         returnKeyType = .go
+        clearButtonMode = .whileEditing
         placeholder = "Enter a username"
     }
 
