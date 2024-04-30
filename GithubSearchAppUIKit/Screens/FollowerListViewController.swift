@@ -97,6 +97,9 @@ class FollowerListViewController: UIViewController {
     private func configureViewController() {
         view.backgroundColor = .systemBackground
         //navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
     }
     
     private func configureSearchController() {
@@ -153,6 +156,39 @@ extension FollowerListViewController: UICollectionViewDelegate {
         
         let navController = UINavigationController(rootViewController: destinationVC)
         present(navController, animated: true)
+    }
+    
+    @objc private func addButtonTapped() {
+        Task {
+            var alertItem: AlertItem
+            showLoadingView()
+            
+            do {
+                let user = try await NetworkManager.shared.getUserInfo(for: username)
+                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                
+                try await PersistenceManager.update(with: favorite, actionType: .add)
+                alertItem = AlertItemContext.favoriteUpdated
+                self.presentGFAlertOnMainThread(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
+                
+            } catch {
+                if let networkError = error as? NetworkError {
+                    switch networkError {
+                    case .invalidURL:
+                        alertItem = AlertItemContext.invalidURL
+                    case .invalidData:
+                        alertItem = AlertItemContext.invalidData
+                    case .invalidResponse:
+                        alertItem = AlertItemContext.invalidResponse
+                    }
+                } else if let persistenceError = error as? PersistenceError {
+                    alertItem = AlertItem(title: "Something is wrong", message: persistenceError.rawValue)
+                } else { alertItem = AlertItemContext.defaultError }
+                
+                self.presentGFAlertOnMainThread(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
+            }
+            dismissLoadingView()
+        }
     }
 }
 

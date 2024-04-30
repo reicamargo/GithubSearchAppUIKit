@@ -18,6 +18,7 @@
 		3D2009CA2BE0730D003A12F1 /* GFRepoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2009C92BE0730D003A12F1 /* GFRepoItemViewController.swift */; };
 		3D2009CC2BE074E8003A12F1 /* GFFollowerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2009CB2BE074E8003A12F1 /* GFFollowerItemViewController.swift */; };
 		3D2009D12BE07E88003A12F1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2009D02BE07E88003A12F1 /* Date+Ext.swift */; };
+		3D2009D32BE127B1003A12F1 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2009D22BE127B1003A12F1 /* PersistenceManager.swift */; };
 		3D588C522BDACF6B00EB98B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */; };
 		3D588C542BDACF6B00EB98B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */; };
 		3D588C5B2BDACF6D00EB98B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D588C5A2BDACF6D00EB98B4 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		3D2009C92BE0730D003A12F1 /* GFRepoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemViewController.swift; sourceTree = "<group>"; };
 		3D2009CB2BE074E8003A12F1 /* GFFollowerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemViewController.swift; sourceTree = "<group>"; };
 		3D2009D02BE07E88003A12F1 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		3D2009D22BE127B1003A12F1 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		3D588C4E2BDACF6B00EB98B4 /* GithubSearchAppUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearchAppUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				3D588C822BDBE82300EB98B4 /* NetworkManager.swift */,
+				3D2009D22BE127B1003A12F1 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				3D2009D12BE07E88003A12F1 /* Date+Ext.swift in Sources */,
 				3D2009C12BE03537003A12F1 /* GFSecondaryTitleLabel.swift in Sources */,
 				3D2009BB2BE01BBE003A12F1 /* GFEmptyStateView.swift in Sources */,
+				3D2009D32BE127B1003A12F1 /* PersistenceManager.swift in Sources */,
 				3D588C522BDACF6B00EB98B4 /* AppDelegate.swift in Sources */,
 				3D588C682BDAD77100EB98B4 /* FavoritesListViewController.swift in Sources */,
 				3D2009C82BE0702D003A12F1 /* GFItemInfoViewController.swift in Sources */,

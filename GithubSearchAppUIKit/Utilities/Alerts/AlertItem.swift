@@ -33,4 +33,8 @@ struct AlertItemContext {
     //MARK: - GithubUser has no followers
     static let noFollowers = AlertItem(title: "No followers",
                                             message: "This user has no followers.")
+    
+    //MARK: - Favorites messages
+    static let invalidFavoriteData = AlertItem(title: "Favorite Error", message: "Unable to get favorites.")
+    static let favoriteUpdated = AlertItem(title: "Success!", message: "Favorites list updated! 🎉")
 }
