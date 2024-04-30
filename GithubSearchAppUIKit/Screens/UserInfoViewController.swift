@@ -12,6 +12,7 @@ class UserInfoViewController: UIViewController {
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
+    let sinceLabel = GFBodyLabel(textAlignment: .center)
     var itemViews: [UIView] = []
     
     var username: String!
@@ -34,7 +35,7 @@ class UserInfoViewController: UIViewController {
             self.add(childVC: GFUserInfoHeaderViewController(user: self.user), to: self.headerView)
             self.add(childVC: GFRepoItemViewController(user: self.user), to: self.itemViewOne)
             self.add(childVC: GFFollowerItemViewController(user: self.user), to: self.itemViewTwo)
-            
+            sinceLabel.text = "Github user since \(self.user!.createdAt.convertToDisplayFormat())"
         } catch {
             var alertItem: AlertItem
             if let networkError = error as? NetworkError {
@@ -57,7 +58,7 @@ class UserInfoViewController: UIViewController {
         let padding: CGFloat = 20
         let itemHeight: CGFloat = 140
         
-        itemViews = [headerView, itemViewOne, itemViewTwo]
+        itemViews = [headerView, itemViewOne, itemViewTwo, sinceLabel]
         
         for itemView in itemViews {
             view.addSubview(itemView)
@@ -79,7 +80,10 @@ class UserInfoViewController: UIViewController {
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
             
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
-            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight)
+            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            sinceLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            sinceLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
     
