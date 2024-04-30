@@ -92,7 +92,7 @@ class UserInfoViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180),
+            headerView.heightAnchor.constraint(equalToConstant: 210),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
@@ -101,7 +101,7 @@ class UserInfoViewController: UIViewController {
             itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
             
             sinceLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
-            sinceLabel.heightAnchor.constraint(equalToConstant: 18)
+            sinceLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     
