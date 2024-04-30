@@ -58,11 +58,8 @@ class UserInfoViewController: UIViewController {
     
     private func configureUIElements(with user: User) {
         
-        let repoItemVC = GFRepoItemViewController(user: user)
-        repoItemVC.delegate = self
-        
-        let followerItemVC = GFFollowerItemViewController(user: user)
-        followerItemVC.delegate = self
+        let repoItemVC = GFRepoItemViewController(user: user, delegate: self)
+        let followerItemVC = GFFollowerItemViewController(user: user, delegate: self)
         
         self.add(childVC: GFUserInfoHeaderViewController(user: user), to: self.headerView)
         self.add(childVC: repoItemVC, to: self.itemViewOne)
