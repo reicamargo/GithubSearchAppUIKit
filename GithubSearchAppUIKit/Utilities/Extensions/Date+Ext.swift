@@ -8,14 +8,19 @@
 import Foundation
 
 extension Date {
-    func convertToMonthYearFormat() -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM yyy"
-        return dateFormatter.string(from: self)
-    }
-    
     func convertToDisplayFormat() -> String {
-        guard let date = self.convertToMonthYearFormat() else { return "N/A" }
-        return date
+        return formatted(.dateTime.month(.wide).year())
+        
     }
+//OLD WAY
+//    func convertToMonthYearFormat() -> String? {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MMM yyy"
+//        return dateFormatter.string(from: self)
+//    }
+//    
+//    func convertToDisplayFormat() -> String {
+//        guard let date = self.convertToMonthYearFormat() else { return "N/A" }
+//        return date
+//    }
 }
