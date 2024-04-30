@@ -52,3 +52,7 @@ class GFButton: UIButton {
 //        self.setTitle(title, for: .normal)
     }
 }
+
+#Preview {
+    return GFButton(color: .blue, title: "Test button", systemImageName: "pencil")
+}
