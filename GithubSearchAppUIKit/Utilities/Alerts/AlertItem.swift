@@ -25,4 +25,8 @@ struct AlertItemContext {
                                             message: "Unable to complete your request at this time. Please check again later.")
     static let defaultError = AlertItem(title: "Server Error",
                                             message: "Unable to connect to the server. Please verify you connection.")
+    
+    //MARK: - GithubUser URL error messages
+    static let invalidGithubUserURL = AlertItem(title: "Invalid URL",
+                                            message: "The url attached  to this user is invalid.")
 }

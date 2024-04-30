@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol UserInfoViewControllerDelegate {
+    func didTapGihubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
+}
+
+
 class UserInfoViewController: UIViewController {
     
     let headerView = UIView()
@@ -16,7 +22,7 @@ class UserInfoViewController: UIViewController {
     var itemViews: [UIView] = []
     
     var username: String!
-    private var user: User?
+    var alertItem: AlertItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +37,9 @@ class UserInfoViewController: UIViewController {
     
     private func loadUserInfo() async {
         do {
-            self.user = try await NetworkManager.shared.getUserInfo(for: username)
-            self.add(childVC: GFUserInfoHeaderViewController(user: self.user), to: self.headerView)
-            self.add(childVC: GFRepoItemViewController(user: self.user), to: self.itemViewOne)
-            self.add(childVC: GFFollowerItemViewController(user: self.user), to: self.itemViewTwo)
-            sinceLabel.text = "Github user since \(self.user!.createdAt.convertToDisplayFormat())"
+            let user = try await NetworkManager.shared.getUserInfo(for: username)
+            configureUIElements(with: user)
         } catch {
-            var alertItem: AlertItem
             if let networkError = error as? NetworkError {
                 switch networkError {
                 case .invalidURL:
@@ -49,9 +51,23 @@ class UserInfoViewController: UIViewController {
                 }
             } else { alertItem = AlertItemContext.defaultError }
             
-            self.presentGFAlertOnMainThread(title: alertItem.title, message: alertItem.message, buttonTitle: "Ok")
+            self.presentGFAlertOnMainThread(title: alertItem!.title, message: alertItem!.message, buttonTitle: "Ok")
         }
         
+    }
+    
+    private func configureUIElements(with user: User) {
+        
+        let repoItemVC = GFRepoItemViewController(user: user)
+        repoItemVC.delegate = self
+        
+        let followerItemVC = GFFollowerItemViewController(user: user)
+        followerItemVC.delegate = self
+        
+        self.add(childVC: GFUserInfoHeaderViewController(user: user), to: self.headerView)
+        self.add(childVC: repoItemVC, to: self.itemViewOne)
+        self.add(childVC: followerItemVC, to: self.itemViewTwo)
+        sinceLabel.text = "Github user since \(user.createdAt.convertToDisplayFormat())"
     }
     
     private func layoutUI() {
@@ -105,4 +121,24 @@ class UserInfoViewController: UIViewController {
         dismiss(animated: true)
     }
 
+}
+
+extension UserInfoViewController: UserInfoViewControllerDelegate {
+    func didTapGihubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            alertItem = AlertItemContext.invalidGithubUserURL
+            self.presentGFAlertOnMainThread(title: alertItem!.title, message: alertItem!.message, buttonTitle: "Ok")
+            return
+        }
+        
+        presentSafariVC(with: url)
+        
+    }
+    
+    func didTapGetFollowers(for user: User) {
+        //dismiss
+        //tel follower list screen the new user
+    }
+    
+    
 }
