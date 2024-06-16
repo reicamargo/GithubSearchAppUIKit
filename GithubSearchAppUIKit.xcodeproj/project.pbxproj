@@ -25,7 +25,6 @@
 		3D2009DC2BE184B3003A12F1 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2009DB2BE184B3003A12F1 /* UIView+Ext.swift */; };
 		3D2009DF2BE1A9CC003A12F1 /* FollowerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2009DE2BE1A9CC003A12F1 /* FollowerSwiftUIView.swift */; };
 		3D588C522BDACF6B00EB98B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */; };
-		3D588C542BDACF6B00EB98B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */; };
 		3D588C5B2BDACF6D00EB98B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D588C5A2BDACF6D00EB98B4 /* Assets.xcassets */; };
 		3D588C5E2BDACF6D00EB98B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D588C5C2BDACF6D00EB98B4 /* LaunchScreen.storyboard */; };
 		3D588C662BDAD73500EB98B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D588C652BDAD73500EB98B4 /* SearchViewController.swift */; };
@@ -65,7 +64,6 @@
 		3D2009DE2BE1A9CC003A12F1 /* FollowerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerSwiftUIView.swift; sourceTree = "<group>"; };
 		3D588C4E2BDACF6B00EB98B4 /* GithubSearchAppUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearchAppUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3D588C5A2BDACF6D00EB98B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D588C5D2BDACF6D00EB98B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D588C5F2BDACF6D00EB98B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 				3D588C782BDB037900EB98B4 /* Models */,
 				3D588C772BDB037200EB98B4 /* Screens */,
 				3D588C512BDACF6B00EB98B4 /* AppDelegate.swift */,
-				3D588C532BDACF6B00EB98B4 /* SceneDelegate.swift */,
 				3D588C5A2BDACF6D00EB98B4 /* Assets.xcassets */,
 				3D588C5C2BDACF6D00EB98B4 /* LaunchScreen.storyboard */,
 				3D588C5F2BDACF6D00EB98B4 /* Info.plist */,
@@ -388,7 +385,6 @@
 				3D2009BD2BE02ACC003A12F1 /* UserInfoViewController.swift in Sources */,
 				3D2009D52BE13DD4003A12F1 /* FavoriteCell.swift in Sources */,
 				3D588C852BDBED8D00EB98B4 /* AlertItem.swift in Sources */,
-				3D588C542BDACF6B00EB98B4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
